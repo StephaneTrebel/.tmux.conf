@@ -18,15 +18,15 @@ install-dependencies:
 	@echo Making $@…
 	sudo apt update
 	sudo apt upgrade
-	sudo apt install xclip
+	sudo apt install -y xclip
 
 .PHONY: add-tmux-conf
 #: Add tmux configuration as a symlink
-add-tmux-conf: install-dependencies
+add-tmux-conf:
 	@echo Making $@…
 	ln -s $$(pwd)/.tmux.conf $(TARGET)
 
 .PHONY: install
 #: Install everything
-install: add-tmux-conf
+install:
 	@echo Making $@…
